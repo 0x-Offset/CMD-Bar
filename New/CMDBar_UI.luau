@@ -1372,7 +1372,8 @@ function Library:CreateWindow(Properties)
     local WindowFunctions = {}
 
     function WindowFunctions:ChangePrefix(Prefix)
-        Library.Prefix = Utility:StringToKeyCode(Prefix)
+		if Prefix:gsub(" ", ""):gsub("\0", "") == "" then return end
+        Library.Prefix = Utility:StringToKeyCode(Prefix:sub(1))
     end
 
     function WindowFunctions:AddTheme(Name, Theme)
