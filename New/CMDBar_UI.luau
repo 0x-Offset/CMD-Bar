@@ -1264,7 +1264,8 @@ function Library:CreateWindow(Properties)
     end)
 
     -- // Command Entered
-    CommandInput.FocusLost:Connect(function()
+    CommandInput.FocusLost:Connect(function(E)
+		if not E then return end
         if not HoverDebounce then
             task.spawn(function()
                 HoverDebounce = true
