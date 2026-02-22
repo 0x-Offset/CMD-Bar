@@ -1275,7 +1275,7 @@ function Library:CreateWindow(Properties)
             if not IsInCommandsHolder and not Dragging then
                 if Main.Position.Y == UDim.new(1, 0) or Main.Position.Y == UDim.new(0, -36) then
                     task.spawn(function()
-                        if E then Execute(CommandInput.Text end
+                        if E then Execute(CommandInput.Text) end
                         CommandInput.Text = ""
                     end)
 
