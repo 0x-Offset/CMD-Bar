@@ -1,4 +1,4 @@
-local Loaded, Library = pcall(loadstring(game:HttpGet("https://raw.githubusercontent.com/0x-Offset/other/refs/heads/main/CMDBar_UI.luau", true)))
+local Loaded, Library = pcall(loadstring(game:HttpGet("https://raw.githubusercontent.com/0x-Offset/CMD-Bar/refs/heads/main/New/CMDBar_UI.luau", true)))
 
 if not Loaded then
     error("[CMD Bar] UI library failed to load: "..tostring(Library))
