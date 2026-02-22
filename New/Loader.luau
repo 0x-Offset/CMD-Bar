@@ -25,7 +25,7 @@ Window:AddCommand('SetTheme', {'New Theme'}, 'Changes The Theme.', function(Argu
     Window:ChangeTheme(Arguments[1])
 end)
 
-shared.RegisterCMD = function(Name:string, ArgumentDescriptions:{string}, Description:string, Function:function)
+shared.RegisterCMD = function(Name:string, ArgumentDescriptions:{string}, Description:string, Function:Function)
     local Success, Error = pcall(Window.AddCommand, Window, Name, ArgumentDescriptions, Description, Function)
     if not Success then return error(Error) end
     return true
