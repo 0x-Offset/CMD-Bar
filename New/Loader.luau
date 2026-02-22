@@ -1,3 +1,6 @@
+repeat task.wait() until game:IsLoaded()
+-- if you make a custom wrapper, make sure to include this (especially if ure gonna have ur script in auto-exec)
+
 local Loaded, Library = pcall(loadstring(game:HttpGet("https://raw.githubusercontent.com/0x-Offset/CMD-Bar/refs/heads/main/New/CMDBar_UI.luau", true)))
 
 if not Loaded then
@@ -22,4 +25,8 @@ Window:AddCommand('SetTheme', {'New Theme'}, 'Changes The Theme.', function(Argu
     Window:ChangeTheme(Arguments[1])
 end)
 
---TODO: implement cross-script command registration
+shared.RegisterCMD = function(Name:string, ArgumentDescriptions:{string}, Description:string, Function:function)
+    local Success, Error = pcall(Window.AddCommand, Window, Name, ArgumentDescriptions, Description, Function)
+    if not Success then return error(Error) end
+    return true
+end
