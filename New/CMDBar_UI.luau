@@ -1542,7 +1542,7 @@ function Library:CreateWindow(Properties)
         end)
     end
 
-    function WindowFunctions:AddCommand(Name, Arguments, Description, Callback
+    function WindowFunctions:AddCommand(Name, Arguments, Description, Callback)
 		if Commands[Name:lower()] ~= nil then return error("A command with that name already exists.") end
         Commands[Name:lower()] = {
             Name = Name:lower(),
