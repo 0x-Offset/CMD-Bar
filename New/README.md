@@ -7,7 +7,12 @@ example of how to use:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/0x-Offset/CMD-Bar/refs/heads/main/New/Loader.luau", true))()
 repeat task.wait() until shared.RegisterCMD ~= nil
 
-shared.RegisterCMD("FuckYou", {"Name"}, "Says fuck you.", function(Arguments, Issuer)
-    print("Hey "..Issuer.Name..", why u trying to be mean to "..Arguments[1].."?? fuck you "..Issuer.Name)
+shared.RegisterCMD("to", {"Player Name"}, function(Arguments, Issuer)
+    local target = game.Players:FindFirstChild(Arguments[1])
+    if not target then
+        return false, "That player does not exist."
+    end
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(target.Character.HumanoidRootPart.Position)
+    return true
 end)
 ```
